@@ -29,6 +29,7 @@ import { InitiateCallComponent } from './Components/initiate-call/initiate-call.
 import { CustomerQueueLiveComponentComponent } from './Components/customer-queue-live-component/customer-queue-live-component.component';
 import { GrantPermissionsVkycComponent } from './Components/grant-permissions-vkyc/grant-permissions-vkyc.component';
 import { MainVideoStreamComponent } from './Components/main-video-stream/main-video-stream.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MainVideoStreamComponent } from './Components/main-video-stream/main-vi
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],
