@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg">
+  <div
+    class="container-fluid d-flex justify-content-between align-items-center"
+  >
+    <div [ngClass]="{ 'display-on-logout': userLoggedIn }">
+      <a class="navbar-brand fw-semibold fs-2" href="#">Jio VideoKyc</a>
+    </div>
+
+    <div [ngClass]="{ 'display-on-login': !userLoggedIn }">
+      <a class="navbar-brand fw-semibold fs-3 text-primary" href="#"
+        >Agent Dashboard</a
+      >
+    </div>
+
+    <div
+      id="navbarSupportedContent"
+      [ngClass]="{ 'display-on-logout': userLoggedIn }"
+      class="d-flex"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
+        <li class="nav-item mx-3" routerLinkActive="active-link">
+          <a class="nav-link" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item mx-3" routerLinkActive="active-link">
+          <a class="nav-link" routerLink="register">Register</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <div
+      id="navbarSupportedContent"
+      [ngClass]="{ 'display-on-login': !userLoggedIn }"
+      class="d-flex"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
+        <li class="nav-item mx-3" routerLinkActive="active-link">
+          <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+        </li>
+      </ul>
+    </div> -->
+
+    <div
+      id="navbarSupportedContent"
+      [ngClass]="{ 'display-on-login': !userLoggedIn }"
+      class="d-flex"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
+        <div class="d-flex justify-content-center align-items-center">
+          <li>
+            <p style="margin-bottom: 0px">{{ userDetails.name }}</p>
+            <mat-slide-toggle [(ngModel)]="isChecked">{{
+              isChecked ? "Online" : "Offline"
+            }}</mat-slide-toggle>
+          </li>
+          <li>
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="home"
+              style="font-size: 45px; margin: 0px 10px; margin-top: 8px"
+              >account_circle</mat-icon
+            >
+          </li>
+
+          <li class="nav-item mx-3" routerLinkActive="active-link">
+            <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

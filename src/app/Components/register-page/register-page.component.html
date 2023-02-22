@@ -1,0 +1,70 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div
+      style="height: 90vh"
+      class="d-flex flex-column justify-content-center align-items-center"
+    >
+      <h2>Register in VCIP</h2>
+
+      <div class="mb-2">
+        <mat-form-field class="contact-input">
+          <mat-label>Name</mat-label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            [(ngModel)]="name"
+            matInput
+            placeholder="Ex. Samyak Panchbhai"
+            value=""
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="mb-2">
+        <mat-form-field class="contact-input">
+          <mat-label>Email Address</mat-label>
+          <input
+            type="email"
+            name="emailAddress"
+            id="emailAddress"
+            [(ngModel)]="emailAddress"
+            matInput
+            placeholder="Ex. john@doe.com"
+            value=""
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="mb-2">
+        <mat-form-field class="contact-input">
+          <mat-label for="password">Password</mat-label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            [(ngModel)]="password"
+            matInput
+            value=""
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="mb-2">
+        <mat-form-field class="contact-input">
+          <mat-label for="cpassword">Confirm Password</mat-label>
+          <input
+            type="password"
+            name="cpassword"
+            id="cpassword"
+            [(ngModel)]="cpassword"
+            matInput
+            value=""
+          />
+        </mat-form-field>
+      </div>
+
+      <button class="btn btn-primary">Register</button>
+    </div>
+  </form>
+</div>

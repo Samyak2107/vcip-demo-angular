@@ -1,0 +1,105 @@
+<div>
+  <ul class="nav mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item cq-button-list" role="presentation">
+      <button
+        [ngClass]="{ active: activateLiveTab }"
+        (click)="onLiveTabActive()"
+        class="nav-link active mx-2 btn btn-outline-success"
+        id="pills-home-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-home"
+        type="button"
+        role="tab"
+        aria-controls="pills-profile"
+        aria-selected="true"
+      >
+        <div class="d-flex text-black">
+          <mat-icon
+            style="margin-right: 10px; color: red"
+            class="example-tab-icon"
+            >radio_button_checked</mat-icon
+          >
+          Live
+        </div>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        [ngClass]="{ active: activateScheduledTab }"
+        (click)="onScheduledTabActive()"
+        class="nav-link mx-2 btn btn-outline-success"
+        id="pills-scheduled-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-profile"
+        type="button"
+        role="tab"
+        aria-controls="pills-profile"
+        aria-selected="false"
+      >
+        <div class="d-flex text-black">
+          <mat-icon style="margin-right: 10px" class="example-tab-icon"
+            >schedule</mat-icon
+          >
+          Scheduled
+        </div>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        [ngClass]="{ active: activateAssignedTab }"
+        (click)="onAssignedTabActive()"
+        class="nav-link mx-2 btn btn-outline-success"
+        id="pills-assigned-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-contact"
+        type="button"
+        role="tab"
+        aria-controls="pills-contact"
+        aria-selected="false"
+      >
+        <div class="d-flex text-black">
+          <mat-icon style="margin-right: 10px" class="example-tab-icon"
+            >contact_page</mat-icon
+          >
+          Assigned
+        </div>
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div
+      [ngClass]="{ 'show active': activateLiveTab }"
+      class="tab-pane fade"
+      id="pills-home"
+      role="tabpanel"
+      aria-labelledby="pills-home-tab"
+      tabindex="0"
+    >
+      <app-customer-queue-live-component></app-customer-queue-live-component>
+    </div>
+    <div
+      [ngClass]="{ 'show active': activateScheduledTab }"
+      class="tab-pane fade"
+      id="pills-profile"
+      role="tabpanel"
+      aria-labelledby="pills-scheduled-tab"
+      tabindex="0"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam voluptatem
+      labore distinctio quae quis quo expedita, et provident adipisci, tenetur
+      natus. Quibusdam, earum? Iusto dolorum animi dolor natus nesciunt et.
+    </div>
+    <div
+      [ngClass]="{ 'show active': activateAssignedTab }"
+      class="tab-pane fade"
+      id="pills-contact"
+      role="tabpanel"
+      aria-labelledby="pills-assigned-tab"
+      tabindex="0"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis minima
+      delectus recusandae nobis illo. Recusandae, cum aut ex, sed enim, fuga
+      rerum velit ipsam voluptatibus ut molestiae nostrum eos consectetur?
+    </div>
+  </div>
+</div>

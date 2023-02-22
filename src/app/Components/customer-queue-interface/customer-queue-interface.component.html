@@ -1,0 +1,88 @@
+<div>
+  <!-- <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Customer Queue"
+      ><ng-template mat-tab-label>
+        <mat-icon style="margin-right: 10px" class="example-tab-icon"
+          >contact_phone</mat-icon
+        >
+        Customer Queue
+      </ng-template>
+      <h1>Content 1</h1>
+    </mat-tab>
+    <mat-tab label="Call History">
+      <ng-template mat-tab-label>
+        <mat-icon style="margin-right: 10px" class="example-tab-icon"
+          >history</mat-icon
+        >
+        Call History
+      </ng-template>
+      Content 2</mat-tab
+    >
+  </mat-tab-group> -->
+  <nav style="background: rgb(212, 208, 208)">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button
+        class="nav-link active"
+        [ngClass]="{ active: activateCustomerQueue }"
+        id="nav-home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#nav-home"
+        type="button"
+        role="tab"
+        aria-controls="nav-home"
+        aria-selected="true"
+        (click)="onTabCustomerQueue()"
+      >
+        <div class="d-flex fw-semibold text-black">
+          <mat-icon style="margin-right: 10px" class="example-tab-icon"
+            >contact_phone</mat-icon
+          >
+          Customer Queue
+        </div>
+      </button>
+      <button
+        class="nav-link"
+        [ngClass]="{ active: activateCallHistory }"
+        id="nav-profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#nav-profile"
+        type="button"
+        role="tab"
+        aria-controls="nav-profile"
+        aria-selected="false"
+        (click)="onTabCallHistory()"
+      >
+        <div class="d-flex fw-semibold text-black">
+          <mat-icon style="margin-right: 10px" class="example-tab-icon"
+            >history</mat-icon
+          >
+          Call history
+        </div>
+      </button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div
+      class="tab-pane fade"
+      [ngClass]="{ 'show active': activateCustomerQueue }"
+      id="nav-home"
+      role="tabpanel"
+      aria-labelledby="nav-home-tab"
+      tabindex="0"
+    >
+      <app-customer-queue-tab-component></app-customer-queue-tab-component>
+    </div>
+    <div
+      class="tab-pane fade"
+      [ngClass]="{ 'show active': activateCallHistory }"
+      id="nav-profile"
+      role="tabpanel"
+      aria-labelledby="nav-profile-tab"
+      tabindex="0"
+    >
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, rem illo
+      id dolorem officia rerum consequuntur aliquam nisi illum qui praesentium
+      sunt tempore nulla officiis et accusamus modi earum iusto!
+    </div>
+  </div>
+</div>

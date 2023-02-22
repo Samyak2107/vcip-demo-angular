@@ -1,0 +1,45 @@
+<div
+  style="height: 100%"
+  class="d-flex flex-column justify-content-center align-items-center"
+  [ngClass]="{
+    'hide-permission-div': mediaPermissionsEnabled && locationPermissionEnabled
+  }"
+>
+  <!-- <div style="font-size: 130px">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="visibility_off"
+      style="
+        font-size: 100%;
+        color: black;
+        margin-left: -65px;
+        margin-bottom: -40px;
+      "
+      >visibility_off</mat-icon
+    >
+  </div> -->
+  <h3>Kindly grant the below permissions to start your Video KYC</h3>
+  <p>
+    Note: Once you grant the permission, your browser will open a dialogue box
+    below your web address bar.
+  </p>
+  <p>
+    Do not press "Deny" else we will not be able to connect your video call to
+    the customer
+  </p>
+  <button class="btn btn-primary" (click)="callGrantAccess()">
+    Grant Access
+  </button>
+</div>
+
+<div
+  class="d-flex"
+  style="width: 100%"
+  [ngClass]="{
+    'hide-initiate-call-div':
+      !mediaPermissionsEnabled && !locationPermissionEnabled
+  }"
+>
+  <app-initiate-call style="width: 100%"></app-initiate-call>
+</div>

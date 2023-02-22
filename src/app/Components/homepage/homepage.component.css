@@ -1,0 +1,15 @@
+.agent-dashboard-home {
+  width: 100%;
+  height: 88vh;
+}
+
+.daily-activity-div {
+  width: 25%;
+  height: 100%;
+  background: rgb(226, 226, 223);
+}
+
+.cusotmer-queue-div {
+  width: 75%;
+  height: 100%;
+}
