@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { saveProvisionId } from './provision-user.actions';
+import { saveProvisionId, toggleOnlineStatus } from './provision-user.actions';
 
 export interface ProvisionState {
   id: any;
@@ -7,9 +7,14 @@ export interface ProvisionState {
 
 export const initialState = {
   id: '',
+  agentOnline: false,
 };
 
 export const provisionReducer = createReducer(
   initialState,
-  on(saveProvisionId, (state) => state)
+  on(saveProvisionId, (state, { content }) => ({ ...state, id: content })),
+  on(toggleOnlineStatus, (state, { content }) => ({
+    ...state,
+    agentOnline: content,
+  }))
 );

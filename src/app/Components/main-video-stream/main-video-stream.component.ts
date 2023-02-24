@@ -1,5 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { showProvisionId } from 'src/app/state/provision-user/provision-user.selectors';
 
 @Component({
   selector: 'app-main-video-stream',
@@ -7,43 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-video-stream.component.css'],
 })
 export class MainVideoStreamComponent implements OnInit {
+  provisionId$!: Observable<any>;
   responseBody!: any;
-  constructor(private http: HttpClient) {}
+  userDetails!: any;
+  constructor(
+    private http: HttpClient,
+    private store: Store<{ provisionId: any }>
+  ) {}
 
   ngOnInit(): void {
-    const data = {
-      emailId: 'samyakmp111@gmail.com',
-      mobileNo: '7208528570',
-      name: 'Samyak',
-      lname: 'Panchbhai',
-    };
-    console.log(data);
-    const headers = new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
-      .set('app', 'jiovcip')
-      .set(
-        'authToken',
-        'fx8fTKDgh5JB44pHjYzseR5zZTy5ZXTX90bk9hdDjN4zBX4evg4b1xskmcJwwEHM'
-      )
-      .set('Accept', 'application/json');
-    this.http
-      .post('https://rc.jiomeet.jio.com/api/thirdparty/provision/user', data, {
-        headers: headers,
-      })
-      .subscribe((responseData) => {
-        console.log('Response from provision user api ->', responseData);
-        this.responseBody = responseData;
-        // if (this.responseBody.error) {
-        //   alert(this.responseBody.message);
-        //   return;
-        // }
-        // localStorage.setItem('user', JSON.stringify(this.responseBody.data));
-        // this.sendUser.emit(this.responseBody.data);
-        // alert(this.responseBody.message);
-        // this.router.navigate(['/home']);
-        // window.location.reload();
-        //this.setInitialState();
-      });
+    const localItem: any = localStorage.getItem('user');
+    this.userDetails = JSON.parse(localItem);
+    console.log('Name of user for Jio meet ->', this.userDetails.name);
+    this.provisionId$ = this.store.select('provisionId');
+    console.log(
+      'Provision id received in streaming component',
+      this.provisionId$
+    );
   }
 }

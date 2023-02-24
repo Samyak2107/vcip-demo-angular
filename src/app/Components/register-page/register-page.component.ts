@@ -33,7 +33,7 @@ export class RegisterPageComponent implements OnInit {
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*');
     this.http
-      .post('http://localhost:5000/users/sign-up', data, {
+      .post('https://vcip-test-api.onrender.com/users/sign-up', data, {
         headers: headers,
       })
       .subscribe((responseData) => {

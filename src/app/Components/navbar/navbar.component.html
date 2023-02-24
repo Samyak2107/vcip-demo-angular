@@ -19,10 +19,17 @@
     >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
         <li class="nav-item mx-3" routerLinkActive="active-link">
-          <a class="nav-link" routerLink="login">Login</a>
+          <a class="nav-link" routerLinkActive="active-link" routerLink="login"
+            >Login</a
+          >
         </li>
         <li class="nav-item mx-3" routerLinkActive="active-link">
-          <a class="nav-link" routerLink="register">Register</a>
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="register"
+            >Register</a
+          >
         </li>
       </ul>
     </div>
@@ -47,17 +54,26 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
         <div class="d-flex justify-content-center align-items-center">
           <li>
-            <p style="margin-bottom: 0px">{{ userDetails.name }}</p>
-            <mat-slide-toggle [(ngModel)]="isChecked">{{
-              isChecked ? "Online" : "Offline"
-            }}</mat-slide-toggle>
+            <p style="margin-bottom: 0px">
+              {{ userDetails.name ? userDetails.name : "" }}
+            </p>
+            <mat-slide-toggle
+              [(ngModel)]="isChecked"
+              (click)="handleAgentStatus()"
+              >{{ isChecked ? "Online" : "Offline" }}</mat-slide-toggle
+            >
           </li>
           <li>
             <mat-icon
               aria-hidden="false"
               aria-label="Example home icon"
-              fontIcon="home"
-              style="font-size: 45px; margin: 0px 10px; margin-top: 8px"
+              style="
+                font-size: 45px;
+                margin: 0px 10px;
+                margin-top: 8px;
+                height: 45px;
+                width: 45px;
+              "
               >account_circle</mat-icon
             >
           </li>

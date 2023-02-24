@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { toggleOnlineStatus } from 'src/app/state/provision-user/provision-user.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +12,13 @@ export class NavbarComponent implements OnInit {
   userDetails!: any;
   userLoggedIn!: boolean;
   isChecked!: true;
+  agentStatus: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private store: Store,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     const localItem: any = localStorage.getItem('user');
@@ -25,7 +32,14 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     localStorage.removeItem('user');
-    this.router.navigate(['/login']);
-    window.location.reload();
+    this.router.navigate(['login']).then(() => {
+      window.location.reload();
+    });
+  }
+
+  handleAgentStatus() {
+    this.agentStatus = !this.agentStatus;
+    console.log(this.agentStatus);
+    this.store.dispatch(toggleOnlineStatus({ content: this.agentStatus }));
   }
 }

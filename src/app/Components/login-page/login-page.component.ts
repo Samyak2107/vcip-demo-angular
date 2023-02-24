@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*');
     this.http
-      .post('http://localhost:5000/users/login', data, {
+      .post('https://vcip-test-api.onrender.com/users/login', data, {
         headers: headers,
       })
       .subscribe((responseData) => {
@@ -41,8 +41,9 @@ export class LoginPageComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(this.responseBody.data));
         this.sendUser.emit(this.responseBody.data);
         alert(this.responseBody.message);
-        this.router.navigate(['/home']);
-        window.location.reload();
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
         //this.setInitialState();
       });
   }
